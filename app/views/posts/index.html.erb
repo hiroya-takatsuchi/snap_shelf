@@ -1,9 +1,9 @@
 <div class="contents row">
   <% @posts.each do |post| %>
-    <div class="content_post" style="background-image: url(<%= post.image %>);">
-      <p><%= post.text %></p>
+    <div class="content_post" style="background-image: url(<%= url_for(post.image) %>);">
+      <p><%= post.explanation %></p>
       <span class="name">
-        <%= post.name %>
+        <%= post.user.nickname %>
       </span>
     </div>
   <% end %>
