@@ -13,11 +13,26 @@
               <a class="dropdown-item"><%= link_to '編集', edit_post_path(@post.id),method: :get %></a>
               <a class="dropdown-item"><%= link_to '削除', post_path(@post.id), data: { turbo_method: :delete } %></a>
             </div>
+            <% if user_signed_in? %>
+            <%= form_with(model: [@post, @comment], local: true, class: 'form-group') do |f| %>
+              <%= f.text_area :text, placeholder: "コメントする", rows: "2", class: 'form-control' %>
+              <%= f.submit "SEND", class: 'btn btn-primary mt-3' %>
+            <% end %>
+            <% else %>
+              <strong><p class="alert alert-warning">※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
+            <% end %>
+            <div class="comments">
+              <h4>＜コメント一覧＞</h4>
+              <% @comments.each do |comment| %>
+                <p>
+                  <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>:</strong>
+                  <%= comment.text %>
+                </p>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-
- edit_post

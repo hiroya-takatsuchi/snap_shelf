@@ -2,6 +2,8 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
   def index
     @posts = Post.order(created_at: :desc)
+    @post = Post.new
+    @comment = Comment.new
   end
 
   def new
@@ -19,6 +21,11 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @comments = @post.comments
+
+    if user_signed_in?
+      @comment = Comment.new(post: @post)
+    end
   end
 
   def destroy
