@@ -1,10 +1,18 @@
-<div class="contents row">
-  <% @posts.each do |post| %>
-    <div class="content_post" style="background-image: url(<%= url_for(post.image) %>);">
-      <p><%= post.explanation %></p>
-      <span class="name">
-        <%= post.user.nickname %>
-      </span>
-    </div>
-  <% end %>
+<div class="container">
+  <div class="row">
+    <% @posts.each do |post| %>
+      <div class="col-md-6">
+        <div class="card">
+          <%= image_tag post.image, class: "card-img-top mx-auto d-block", style: "width: auto; height: 340px; object-fit: cover;", alt: post.user.nickname %>
+          <div class="card-footery">
+            <p class="card-text" style="background-color: gray; color: white;"><%= post.explanation %></p>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted"><%= post.user.nickname %></small>
+            <%= link_to '詳細',post_path(post) , class: 'btn btn-primary' %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>

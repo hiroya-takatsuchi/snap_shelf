@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <%# <div class="card" style="background-image: url(<%= @post.image %>
+        <div class="card-body">
+          <p class="card-text"><%= @post.explanation %></p>
+          <h5 class="card-title"><%= @post.user.nickname %></h5>
+          <div class="custom-class"> <!-- ここを変更しました -->
+            <button class="btn btn-secondary custom-toggle" type="button" id="customButton" aria-haspopup="true" aria-expanded="false"> <!-- ここを変更しました -->
+              <%= image_tag @post.image %>
+            </button>
+            <div class="custom-menu" aria-labelledby="customButton"> <!-- ここを変更しました -->
+              <a class="dropdown-item"><%= link_to '編集', edit_post_path(@post.id),method: :get %></a>
+              <a class="dropdown-item"><%= link_to '削除', post_path(@post.id), data: { turbo_method: :delete } %></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+ edit_post
