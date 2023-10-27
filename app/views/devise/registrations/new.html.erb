@@ -30,7 +30,7 @@
 
       <div class="field">
         <%= f.label :prefecture_id, "Prefectures", class: "label" %>
-        <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, prompt: "Select Prefecture", class: "select") %>
+        <%= f.collection_select(:prefectures_id, Prefecture.all, :id, :name, prompt: "Select Prefecture", class: "select") %>
       </div>
 
       <div class="field">

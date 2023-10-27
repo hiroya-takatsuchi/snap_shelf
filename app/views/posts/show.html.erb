@@ -5,11 +5,11 @@
         <div class="card-body">
           <p class="card-text"><%= @post.explanation %></p>
           <h5 class="card-title"><%= @post.user.nickname %></h5>
-          <div class="custom-class"> <!-- ここを変更しました -->
+          <div class="custom-class"> 
             <button class="btn btn-secondary custom-toggle" type="button" id="customButton" aria-haspopup="true" aria-expanded="false"> <!-- ここを変更しました -->
-              <%= image_tag @post.image %>
+              <%= image_tag @post.image, class: "image-size" %>
             </button>
-            <div class="custom-menu" aria-labelledby="customButton"> <!-- ここを変更しました -->
+            <div class="custom-menu" aria-labelledby="customButton"> 
               <a class="dropdown-item"><%= link_to '編集', edit_post_path(@post.id),method: :get %></a>
               <a class="dropdown-item"><%= link_to '削除', post_path(@post.id), data: { turbo_method: :delete } %></a>
             </div>

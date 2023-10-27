@@ -9,7 +9,12 @@
           </div>
           <div class="card-footer">
             <small class="text-muted"><%= post.user.nickname %></small>
-            <%= link_to '詳細',post_path(post) , class: 'btn btn-primary' %>
+            <!-- 各投稿に対する「いいね」の数を表示 -->
+            <p>「いいね」の数: <%= post.likes.count %></p>
+            <%= link_to '詳細',post_path(post) , class: 'btn btn-primary' , remote: true %>
+            <div id="like-btn<%= post.id %>">
+              <%= render partial: "likes/like", locals: { post: post, class_name: 'like-button' } %>
+            </div>
           </div>
         </div>
       </div>

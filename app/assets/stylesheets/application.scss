@@ -6,9 +6,15 @@
 }
 
 body {
-  background: url(asset-path('backg.jpg')) no-repeat center center fixed !important; 
+  background: url(asset-path('backg1.jpg')) no-repeat center center fixed !important; 
   -webkit-background-size: cover !important;
   -moz-background-size: cover !important;
   -o-background-size: cover !important;
   background-size: cover !important;
+}
+
+.image-size {
+  height: 700px;
+  width: 1000px;
+  object-fit: cover;
 }
