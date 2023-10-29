@@ -21,13 +21,4 @@ class Post < ApplicationRecord
     posts = posts.where('users.area_id = ?', area_id) if area_id.present?
     posts
   end
-
-  # def self.search(search)
-  #   if search 
-  #     Post.where('explanation LIKE(?) OR title LIKE(?)', "%#{search}%", "%#{search}%")
-  #   else
-  #     Post.all
-  #   end
-  # end
-
 end

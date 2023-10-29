@@ -1,33 +1,36 @@
+<%= render 'shared/error_messages', model: @user %>
+
 <div class="container mt-5">
+
+<%= form_with model: @user, url: user_session_path, class: 'registration-main', local: true do |f| %>
 
   <div class="row">
     <div class="col-8">
+    <div class='login-flash-message'>
+      <%= flash[:notice] %>
+      <%= flash[:alert] %>
+    </div>
 
       <h2>Log in</h2>
-
-      <form>
-
+      
         <div class="form-group">
-          <label for="inputEmail">Email address</label>
-          <input type="email" class="form-control" id="inputEmail" placeholder="Enter email">
+          <div class='form-text-wrap'>
+            <label class="form-text">メールアドレス</label>
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.email_field :email, class:"input-default", id:"email", placeholder:"PC・携帯どちらでも可", autofocus: true %>
         </div>
-
         <div class="form-group">
-          <label for="inputPassword">Password</label>
-          <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+          <div class='form-text-wrap'>
+            <label class="form-text">パスワード</label>
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.password_field :password, class:"input-default", id:"password", placeholder:"" %>
         </div>
-
-        <div class="form-check mb-3">
-          <input class="form-check-input" type="checkbox" id="rememberMe">
-          <label class="form-check-label" for="rememberMe">
-            Remember me
-          </label>
+        <div class='login-btn'>
+          <%= f.submit "ログイン" ,class:"login-red-btn" %>
         </div>
-
-        <button type="submit" class="btn btn-primary">Log in</button>
-
-      </form>
-    </div>
-  </div>
+      </div>
 
 </div>
+<% end %>
