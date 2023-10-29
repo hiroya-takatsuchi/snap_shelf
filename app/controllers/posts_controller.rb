@@ -1,9 +1,15 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
+  # before_action :move_to_index, except: [:index, :show, :search]
+
   def index
-    @posts = Post.order(created_at: :desc)
-    @post = Post.new
-    @comment = Comment.new
+    if params[:tab] == 'tab1'
+      @posts = Post.order(views: :desc)
+    else
+      @posts = Post.order(created_at: :desc)
+      @post = Post.new
+      @comment = Comment.new
+    end
   end
 
   def new
@@ -21,11 +27,14 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @post.increment!(:views)
     @comments = @post.comments
+    return unless user_signed_in?
+    @comment = Comment.new(post: @post)
+  end
 
-    if user_signed_in?
-      @comment = Comment.new(post: @post)
-    end
+  def search
+    @posts = Post.search(params[:keyword], params[:prefectures_id], params[:area_id])
   end
 
   def destroy
@@ -39,7 +48,7 @@ class PostsController < ApplicationController
   end
 
   def update
-    if@post = Post.find(params[:id])
+    if @post = Post.find(params[:id])
       @post.update(post_params)
       redirect_to root_path
     else
@@ -48,8 +57,8 @@ class PostsController < ApplicationController
   end
 
   private
+
   def post_params
     params.require(:post).permit(:image, :title, :explanation, :genre_id, :shelf_number_id).merge(user_id: current_user.id)
   end
-
 end

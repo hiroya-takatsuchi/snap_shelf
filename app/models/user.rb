@@ -3,13 +3,14 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  
+
   has_many :posts
   has_many :comments
   has_many :likes
 
   def total_likes
-    self.likes.count
+    likes.count
   end
+
   
 end

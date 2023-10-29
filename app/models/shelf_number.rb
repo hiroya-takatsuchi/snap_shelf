@@ -9,7 +9,7 @@ class ShelfNumber < ActiveHash::Base
     { id: 7, name: '6' },
     { id: 8, name: '7' },
     { id: 9, name: '8' },
-    { id: 10, name: '9' },
+    { id: 10, name: '9' }
   ]
 
   include ActiveHash::Associations

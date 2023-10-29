@@ -9,7 +9,7 @@ class Genre < ActiveHash::Base
     { id: 7, name: '雑貨' },
     { id: 8, name: '紙' },
     { id: 9, name: 'ベビー' },
-    { id: 10, name: '食品' },
+    { id: 10, name: '食品' }
   ]
 
   include ActiveHash::Associations
