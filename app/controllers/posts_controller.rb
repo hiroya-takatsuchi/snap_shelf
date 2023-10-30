@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
-  # before_action :move_to_index, except: [:index, :show, :search]
+  before_action :correct_user, only: [:destroy, :edit, :update]
 
   def index
     if params[:tab] == 'tab1'
@@ -60,5 +60,10 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:image, :title, :explanation, :genre_id, :shelf_number_id).merge(user_id: current_user.id)
+  end
+
+  def correct_user
+    @post = current_user.posts.find_by(id: params[:id])
+    redirect_to root_path if @post.nil?
   end
 end

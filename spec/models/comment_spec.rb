@@ -13,8 +13,9 @@ RSpec.describe Comment, type: :model do
     end
     context 'コメントが投稿できない場合' do
       it 'textが空では保存できない' do
-        @comment.text = nil
-        expect(@comment).to be_invalid
+        @comment.text = ''
+        @comment.valid?
+        expect(@comment.errors.full_messages).to include("Text can't be blank")
       end
       it 'userが紐付いていなければ出品できない' do
         @comment.user = nil

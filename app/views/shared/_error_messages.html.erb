@@ -1,8 +1,16 @@
+<%# <style>
+.alert {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+}
+</style>  %>
+
 <% if model.errors.any? %>
-  <div class="error-alert">
+  <div class="alert alert-danger">
     <ul>
       <% model.errors.full_messages.each do |message| %>
-      <li class='error-message'><%= message %></li>
+        <li><%= message %></li>  
       <% end %>
     </ul>
   </div>
