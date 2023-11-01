@@ -15,22 +15,16 @@
       
       <p class="card-text">
         <small class="text-muted">
-          閲覧数: <%= post.views %>
+          views: <%= post.views %> good: <%= post.likes.count %> 
         </small>
       </p>
       
-      <p class="card-text">
-        <small class="text-muted">
-          いいね: <%= post.likes.count %> 
-        </small>
-      </p>
-      <%= turbo_frame_tag dom_id(post, :like) do%>
-      <% if user_signed_in? && post.liked_by?(current_user) %>
-
-        <%= link_to "いいね済", post_likes_path(post.id), data: { turbo_method: :delete}, class: "btn btn-success" %> 
-      <% else %>
-        <%= link_to "いいね", post_likes_path(post.id), data: { turbo_method: :post}, class: "btn btn-outline-success" %>
-      <% end %>
+      <%= turbo_frame_tag dom_id(post, :like) do %>
+        <% if user_signed_in? && post.liked_by?(current_user) %>
+          <%= link_to "いいね済", post_likes_path(post.id), data: { turbo_method: :delete}, class: "btn btn-success" %> 
+        <% else %>
+          <%= link_to "いいね", post_likes_path(post.id), data: { turbo_method: :post}, class: "btn btn-success" %>
+        <% end %>
       <% end %>
       <%= link_to "詳細", post_path(post), class: "btn btn-primary" %>
     </div>

@@ -27,7 +27,7 @@
         </div>
 
         <div class="field">
-          <%= f.label :prefecture_id, "Prefectures", class: "label" %>
+          <%= f.label :prefecture_id, "Prefecture", class: "label" %>
           <%= f.collection_select(:prefectures_id, Prefecture.all, :id, :name, prompt: "Select Prefecture", class: "select") %>
         </div>
 
