@@ -5,6 +5,8 @@ class PostsController < ApplicationController
   def index
     if params[:tab] == 'tab1'
       @posts = Post.order(views: :desc)
+    elsif params[:tab] == 'tab2'
+      @posts = current_user.liked_posts.order(created_at: :desc)
     else
       @posts = Post.order(created_at: :desc)
       @post = Post.new

@@ -3,6 +3,7 @@ class Post < ApplicationRecord
   has_many :comments
   has_many :likes
   has_one_attached :image
+  has_many :favorite_posts, through: :likes, source: :post
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   validates :image, presence: true
