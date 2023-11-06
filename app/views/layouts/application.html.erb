@@ -13,10 +13,9 @@
   <body>
     <header class="sticky-top navbar navbar-expand-lg navbar-light bg-light">
   <div class="container">
-    <a class="navbar-brand" href="/">SnapShelf</a>
-    <button class="navbar-toggler" type="button">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    <%= link_to "/", class: "navbar-brand" do %>
+      <button type="button" class="btn btn-light btn-large">SnapShelf</button>
+    <% end %>
 
     <div class="collapse navbar-collapse">
           <ul class="navbar-nav ml-auto d-flex flex-row">

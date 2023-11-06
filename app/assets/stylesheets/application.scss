@@ -29,28 +29,6 @@ body {
   display: inline-block; /* ブロック要素をインライン要素のように扱う */
   white-space: nowrap; /* 文字列を折り返さない */
 }
-
-// footer {
-//   position: absolute;
-//   bottom: 0;
-//   left: 0;
-//   right: 0;
-// }
-// .card-img-top {
-//   width: 100% !important;
-//   height: 200px !important; 
-//   object-fit: scale-down;
-// }
-
-// .card {
-//   display: flex;
-//   flex-direction: column;
-// }
-
-// .card-img-top {
-//   width: 100%;
-// }
-
-// .card-body {
-//   flex: 1;
-// }
+.btn-large {
+  font-size: 25px;
+}
