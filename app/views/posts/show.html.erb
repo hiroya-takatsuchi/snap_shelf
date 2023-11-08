@@ -3,12 +3,12 @@
     <div class="col-md-4">
       <%# <div class="card" style="background-image: url(<%= @post.image %>
         <div class="card-body">
-          <p class="card-text"><%= @post.explanation %></p>
           <h5 class="card-title"><%= @post.user.nickname %></h5>
           <div class="custom-class"> 
             <button class="btn btn-secondary custom-toggle" type="button" id="customButton" aria-haspopup="true" aria-expanded="false"> <!-- ここを変更しました -->
               <%= image_tag @post.image, class: "image-size" %>
             </button>
+            <h5><p class="card-text"><%= @post.explanation %></p></h5>
             <% if current_user == @post.user %>
               <div class="btn-group">
                 <%= link_to '編集', edit_post_path(@post), class: "btn btn-primary" %>

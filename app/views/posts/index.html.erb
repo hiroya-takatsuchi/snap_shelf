@@ -1,5 +1,19 @@
 <div class="container">
 
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <%= image_tag "drug1.jpg", class: "d-block w-100" %>
+    </div>
+    <div class="carousel-item">
+      <%= image_tag "drug2.jpg", class: "d-block w-100" %>
+    </div>
+    <div class="carousel-item">
+      <%= image_tag "drug3.jpg", class: "d-block w-100" %>
+    </div>
+  </div>
+</div>
+
   <div class="row">
 
     <% @posts.each do |post| %>

@@ -2,7 +2,7 @@
 
 
 body {
-  background: url(asset-path('backg2.jpg')) no-repeat center center fixed !important; 
+  background: url(asset-path('back3.jpg')) no-repeat center center fixed !important; 
   -webkit-background-size: cover !important;
   -moz-background-size: cover !important;
   -o-background-size: cover !important;
@@ -31,4 +31,7 @@ body {
 }
 .btn-large {
   font-size: 25px;
+}
+p.card-text {
+  min-height: 1em;
 }
