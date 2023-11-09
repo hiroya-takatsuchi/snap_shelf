@@ -27,13 +27,13 @@
         </div>
 
         <div class="field">
-          <%= f.label :prefecture_id, "Prefecture", class: "label" %>
-          <%= f.collection_select(:prefectures_id, Prefecture.all, :id, :name, prompt: "Select Prefecture", class: "select") %>
+          <%= f.label :prefecture_id, "Prefecture", class: "label" %><br>
+          <%= f.collection_select(:prefectures_id, Prefecture.all, :id, :name, {prompt: "Select Prefecture"}, {class: "input"}) %>
         </div>
 
         <div class="field">
-          <%= f.label :area_id, "Area", class: "label" %>
-          <%= f.collection_select(:area_id, Area.all, :id, :name, prompt: "Select Area", class: "select") %>
+          <%= f.label :area_id, "Area", class: "label" %><br>
+          <%= f.collection_select(:area_id, Area.all, :id, :name, {prompt: "Select Area"}, {class: "input"}) %>
         </div>
 
         <div class="actions">
