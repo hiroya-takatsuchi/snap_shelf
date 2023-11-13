@@ -35,6 +35,10 @@ Things you may want to cover:
   # URL
   URL：https://snap-shelf.onrender.com/
 
+  #テスト用アカウント
+  Email address test1@test.com
+  Password test11
+
   # 利用方法
   ・アプリにログインします。
   ・ユーザー登録します。(個人ではなく店舗単位で登録)
