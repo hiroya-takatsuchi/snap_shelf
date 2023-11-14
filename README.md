@@ -28,22 +28,22 @@ Things you may want to cover:
 
   # アプリケーションの概要
   ・店舗スタッフの課題：
-  スタッフは、商品の配置やディスプレイの状態をリアルタイムで共有することができ売場の改善案になります。
+  スタッフは、商品の配置やディスプレイの状態をリアルタイムで共有することができ売場の改善案になります
   ・マネージャーの課題：
-  各店舗の売り場の情報を把握することで、適切な指示を出すことが出来ます。また、写真を通じて状況を共有することで効率的なコミュニケーションが可能になります。
+  各店舗の売り場の情報を把握することで、適切な指示を出すことが出来ます。また、写真を通じて状況を共有することで効率的なコミュニケーションが可能になります
 
   # URL
   URL：https://snap-shelf.onrender.com/
 
-  #テスト用アカウント
-  Email address test1@test.com
+  # テスト用アカウント
+  Emailaddress test1@test.com
   Password test11
 
   # 利用方法
   ・アプリにログインします。
-  ・ユーザー登録します。(個人ではなく店舗単位で登録)
-  ・写真を投稿します。
-  ・投稿一覧を閲覧します。
+  ・ユーザー登録します(個人ではなく店舗単位で登録)
+  ・写真を投稿します
+  ・投稿一覧を閲覧します
 
   # アプリケーションを作成した背景
   Snap Shelfは前職で働いていた時に欲しかったサービスを形にしました。
@@ -52,9 +52,18 @@ Things you may want to cover:
   要件定義スプレッドシート
   https://docs.google.com/spreadsheets/d/1yb3qXSXZ4kRwwwiILxABwoMsSr8V2mYKLotkyLPIcQg/edit#gid=982722306
 
+  # 実装した機能についての画像やGIFおよびその説明
+  ・都道府県やエリアから検索をします
+  
+  [![Image from Gyazo](https://i.gyazo.com/dd329bfbd7df037c1ee4f8c51650e0ef.gif)](https://gyazo.com/dd329bfbd7df037c1ee4f8c51650e0ef)
+
+  ・いいね済みの投稿を一覧表示します
+
+  [![Image from Gyazo](https://i.gyazo.com/0138225c49f5d32613daf70183eed992.gif)](https://gyazo.com/0138225c49f5d32613daf70183eed992)
+
   # 実装した機能
   ### ユーザー登録・ログイン
-  ユーザーが自分のアカウントを作成し、管理できるようにする
+  ユーザーが自分のアカウントを作成し、管理できるようにします
 
   ### 写真投稿 
   写真のアップロード・表示
@@ -67,6 +76,9 @@ Things you may want to cover:
 
   ### 閲覧数
   閲覧数の表示  
+
+  # データベース設計
+  ![Alt text](image1.png)
 
   # 開発環境
   ・Ruby on Rails
@@ -81,25 +93,22 @@ Things you may want to cover:
   % yarn install
 
   # 工夫したポイント
-  このアプリはシンプルに仕上げる事で使いやすさを重視しました。
+  このアプリはシンプルに仕上げる事で使いやすさを重視しました
 
   # 改善点
   売場が広いと１枚で写真を収めるのが難しい為、
-  写真を２枚以上投稿出来るようにする予定です。
-
-  # データベース設計
-  ![Alt text](image1.png)
-
+  写真を２枚以上投稿出来るようにする予定です
+  
 # テーブル設計
 
   ### users テーブル
-  | Column             | Type   | Options                   |
-  | ------------------------------------------------------- |
-  | nickname           | string | null: false               |
-  | email              | string | null: false, unique: true |
-  | encrypted_password | string | null: false               |
-  | prefectures_id      | string | null: false              |
-  | area_id            | integer | null: false              |
+  | Column             | Type    | Options                   |
+  | -------------------------------------------------------- |
+  | nickname           | string  | null: false               |
+  | email              | string  | null: false, unique: true |
+  | encrypted_password | string  | null: false               |
+  | prefectures_id     | string  | null: false               |
+  | area_id            | integer | null: false               |
  
   ### Association
   - has_many :posts
