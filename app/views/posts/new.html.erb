@@ -12,8 +12,8 @@
               <%= f.text_field :title, class: 'form-control', placeholder: "タイトル" %>
             </div>
 
-            <div class="form-group">
-              <%= f.file_field :image, class: 'form-control-file' %> 
+            <div class="form-group click-upload">
+              <%= f.file_field :images, name: 'post[images][]', data: {index: 0}, class: 'form-control-file' %> 
             </div>
             <div class="form-group">
               <%= f.collection_select :genre_id, Genre.all, :id, :name, {}, {class: 'custom-select'} %>

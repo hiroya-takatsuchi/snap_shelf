@@ -1,11 +1,18 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-4">class: "image-size"
       <%# <div class="card" style="background-image: url(<%= @post.image %>
         <div class="card-body">
           <div class="custom-class"> 
             <button class="btn btn-secondary custom-toggle" type="button" id="customButton" aria-haspopup="true" aria-expanded="false"> <!-- ここを変更しました -->
-              <%= image_tag @post.image, class: "image-size" %>
+              <%= image_tag @post.images[0], class: "main-image" %><br>
+              <div class="other-images">
+                <% @post.images[1..-1].each do |image| %>
+                  <div class="other-image">
+                    <%= image_tag image %>
+                  </div>
+                <%end%>
+              </div>
             </button>
             <h5 class="card-title"><%= @post.user.nickname %></h5>
             <h5><p class="card-text"><%= @post.explanation %></p></h5>
