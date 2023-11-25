@@ -14,16 +14,16 @@
   </div>
 </div>
 
-  <div class="row">
+<div class="row">
 
-    <% @posts.each do |post| %>
-    
-      <%= render partial: "post", locals: { post: post } %>
-    
-    <% end %>
-
-  </div>
+  <% @posts.each do |post| %>
   
+    <%= render partial: "post", locals: { post: post } %>
+  
+  <% end %>
+
+</div>
+
 </div>
 
 

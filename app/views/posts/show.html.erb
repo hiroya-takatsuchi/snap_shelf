@@ -7,9 +7,9 @@
             <button class="btn btn-secondary custom-toggle" type="button" id="customButton" aria-haspopup="true" aria-expanded="false"> <!-- ここを変更しました -->
               <%= image_tag @post.images[0], class: "main-image" %><br>
               <div class="other-images">
-                <% @post.images[1..-1].each do |image| %>
+                <% @post.images.each do |image| %>
                   <div class="other-image">
-                    <%= image_tag image %>
+                    <%= image_tag(image) %>
                   </div>
                 <%end%>
               </div>
